@@ -1,0 +1,121 @@
+REM === Flipper Zero BadUSB Script: Hardware Report for macOS ===
+REM === Gathers detailed information on system hardware ===
+REM === Includes: CPU, RAM, storage devices, battery health, network adapters, connected USB and Bluetooth devices, screen dimensions, speaker type, and input devices (keyboard, mouse) ===
+REM === Saves the report as "Hardware Report.txt" on the desktop ===
+REM === Author: GhosTech-IT ===
+
+REM === Open Spotlight ===
+HOLD GUI
+HOLD SPACE
+RELEASE SPACE
+RELEASE GUI
+WAIT_FOR_BUTTON_PRESS
+
+REM === Launch Terminal ===
+STRING terminal
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Position Terminal Center Screen ===
+STRING osascript -e 'tell application "Terminal" to set bounds of front window to {400, 200, 1200, 800}'
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Create Report Header ===
+STRING echo "=== Full Hardware Report - $(date) ===" > ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === System Overview ===
+STRING echo "=== System Overview ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPHardwareDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Storage Details ===
+STRING echo "=== Storage Devices ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPStorageDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Battery Information ===
+STRING echo "=== Battery Info ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPPowerDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === USB Devices ===
+STRING echo "=== USB Devices ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPUSBDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Bluetooth Devices ===
+STRING echo "=== Bluetooth Devices ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPBluetoothDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Display Info ===
+STRING echo "=== Display Info ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPDisplaysDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Audio Devices ===
+STRING echo "=== Audio Devices ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPAudioDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Input Devices ===
+STRING echo "=== Input Devices ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPKeyboardDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPMouseDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Network Adapters ===
+STRING echo "=== Network Adapters ===" >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+STRING system_profiler SPNetworkDataType >> ~/Desktop/"Hardware Report.txt"
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM === Close Terminal ===
+STRING osascript -e 'tell application "Terminal" to quit'
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+ENTER

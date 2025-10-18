@@ -1,0 +1,10 @@
+DELAY 1500
+GUI h
+DELAY 150
+GUI SPACE
+DELAY 250
+BACKSPACE
+DELAY 150
+STRING https://shattereddisk.github.io/rickroll/rickroll.mp4
+DELAY 100
+ENTER

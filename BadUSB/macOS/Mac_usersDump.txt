@@ -1,0 +1,35 @@
+REM === Dump User Accounts on macOS ===
+REM === Saves the report as "UsersList.txt" on the desktop ===
+REM === Author: GhosTech-IT ===
+
+REM --- Open Spotlight ---
+HOLD GUI
+HOLD SPACE
+RELEASE SPACE
+RELEASE GUI
+WAIT_FOR_BUTTON_PRESS
+
+REM --- Open Terminal ---
+STRING terminal
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM --- Position Terminal Window (Optional) ---
+STRING osascript -e 'tell application "Terminal" to set bounds of front window to {400, 200, 1200, 800}'
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM --- Run Command to List User Accounts ---
+STRING dscl . list /Users | grep -v "_" | tee ~/Desktop/UsersList.txt
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+
+REM --- Close Terminal ---
+STRING osascript -e 'tell application "Terminal" to quit'
+WAIT_FOR_BUTTON_PRESS
+ENTER
+WAIT_FOR_BUTTON_PRESS
+ENTER
